@@ -23,7 +23,6 @@ Feature: exchange rates api tests
   # == used for validation
   # = used for setting value
 
-  @fight
   Scenario: some matching examples
     * def name = 'Kung Lao'
     * match name == 'Kung Lao'
@@ -38,3 +37,27 @@ Feature: exchange rates api tests
     * def name = fighter.name
     * match name == "scorpion"
     * match fighter.medals == 25
+    * match fighter.name == '#string'
+    * match fighter.medals == '#number'
+    * match fighter.medals == '#present'
+    * match fighter.last_name == '#notpresent'
+
+  @fight
+  Scenario: array value matching
+    * def fighters =
+  """
+  [
+    {
+      "name": "scorpion",
+      "medals": 25
+    },
+    {
+      "name": "Milena",
+      "medals": 26
+    }
+  ]
+  """
+    * def length = fighters.length
+    * match length == 2
+    * match fighters[0].name == '#string'
+    * match fighters contains {"name": "scorpion", "medals": 25}
