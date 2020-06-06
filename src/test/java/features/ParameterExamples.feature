@@ -28,10 +28,31 @@ Feature: parameter examples
     Then status 200
 
     # query param
-  @fight
   Scenario: query parameters
     Given url 'https://cybertek-ui-names.herokuapp.com/api/'
     And param region = 'Germany'
     When method get
     Then status 200
+    And print response
     And match response.region == 'Germany'
+
+  Scenario: query params 2
+    Given url 'https://cybertek-ui-names.herokuapp.com/api/'
+    And param region = 'Kyrgyz Republic'
+    And param amount = 2
+    When method get
+    Then status 200
+    And print response
+    And def len = response.length
+    And match len == 2
+    And match each response contains {"region": "Kyrgyz Republic"}
+
+  @fight
+    Scenario: query params stuff
+    Given url 'https://cybertek-ui-names.herokuapp.com/api/'
+    And def count = 2
+    And param amount = count
+    When method get
+    Then status 200
+    And def actualCount = response.length
+    And match count == actualCount
