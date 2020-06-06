@@ -42,7 +42,6 @@ Feature: exchange rates api tests
     * match fighter.medals == '#present'
     * match fighter.last_name == '#notpresent'
 
-  @fight
   Scenario: array value matching
     * def fighters =
   """
