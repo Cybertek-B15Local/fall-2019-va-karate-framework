@@ -47,7 +47,6 @@ Feature: parameter examples
     And match len == 2
     And match each response contains {"region": "Kyrgyz Republic"}
 
-  @fight
     Scenario: query params stuff
     Given url 'https://cybertek-ui-names.herokuapp.com/api/'
     And def count = 2
@@ -56,3 +55,17 @@ Feature: parameter examples
     Then status 200
     And def actualCount = response.length
     And match count == actualCount
+
+# email: student32@library
+# password: GYLemAba
+  @fight
+  Scenario: form parameters example
+    Given url 'http://library2.cybertekschool.com/rest/v1'
+    And path 'login'
+    And form field email = 'student32@library'
+    And form field password = 'GYLemAba'
+    When method post
+    Then status 200
+    * print response
+    * match response.token == '#present'
+    * match response.token == '#notnull'
