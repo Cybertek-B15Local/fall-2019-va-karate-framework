@@ -37,8 +37,6 @@ Feature: welcome to karate
     * print student.name
     * print student.isAwesome
 
-
-  @fight
   Scenario: more difficult parameters: json array objects
     * def students =
     """
@@ -56,7 +54,5 @@ Feature: welcome to karate
     * print students
     * print students[0].name
     * print students[1].name
-
-
 
 
