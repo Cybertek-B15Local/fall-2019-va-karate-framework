@@ -14,7 +14,6 @@ Feature: exchange rates data driven
     And print response
     And match response contains {'base': 'PHP'}
 
-  @fight
   Scenario Outline: get rates for many non european countries
     Given url 'https://api.exchangeratesapi.io/'
     And path '<day>'

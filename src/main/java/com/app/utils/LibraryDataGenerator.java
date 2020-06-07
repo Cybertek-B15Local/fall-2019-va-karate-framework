@@ -53,6 +53,7 @@ public class LibraryDataGenerator {
 
     public static void main(String[] args) {
         System.out.println(createBook());
+        System.out.println(createUser(3));
     }
 
 }
