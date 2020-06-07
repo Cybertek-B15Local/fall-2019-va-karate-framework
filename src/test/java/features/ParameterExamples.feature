@@ -58,7 +58,7 @@ Feature: parameter examples
 
 # email: student32@library
 # password: GYLemAba
-  @fight
+
   Scenario: form parameters example
     Given url 'http://library2.cybertekschool.com/rest/v1'
     And path 'login'
