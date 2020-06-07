@@ -10,6 +10,7 @@ Feature: create a book
 
   @fight
   Scenario: book tests
+    # POST A BOOK
     * header x-library-token = authToken
     * def book = LibraryDataGenerator.createBook()
     * form fields book
@@ -17,5 +18,13 @@ Feature: create a book
     When method post
     Then status 200
     * print response
-    * def bookId = response.bookId
+    * def bookId = response.book_id
     * match response  == { "book_id": "#notnull","message": "The book has been created."}
+    * print bookId
+    # GET BOOK
+    Given header x-library-token = authToken
+    * path 'get_book_by_id', bookId
+    When method get
+    Then status 200
+    * print response
+    * match response.name == book.name
