@@ -28,3 +28,8 @@ Feature: create a book
     Then status 200
     * print response
     * match response.name == book.name
+    # DELETE AND VERIFY ERROR MESSAGE
+    Given header x-library-token = authToken
+    * path 'delete_book', bookId
+    When method delete
+    Then status 403

@@ -50,6 +50,20 @@ public class LibraryDataGenerator {
         return book;
     }
 
+    public static Map<String, Object> createBook(int book_id) {
+        Faker faker = new Faker();
+        Book bookInfo = faker.book();
+        Map<String, Object> book = new HashMap<>();
+        book.put("name", bookInfo.title());
+        book.put("author", bookInfo.author());
+        book.put("isbn", faker.number().digits(13));
+        book.put("year", faker.number().numberBetween(1900, 2020));
+        book.put("book_category_id", faker.number().numberBetween(1, 20));
+        book.put("description", bookInfo.publisher());
+        book.put("book_id", book_id);
+        return book;
+    }
+
 
     public static void main(String[] args) {
         System.out.println(createBook());
