@@ -20,21 +20,22 @@ Feature: exchange rates data driven
     And path '<day>'
     And param base = '<base>'
     When method get
-    Then status 200
+    Then status <code>
     And print response
-    And match response contains {'base': '<base>'}
+    And match response <contains> {'base': '<base>'}
 
     Examples:
-      | day        | base |
-      | latest     | INR  |
-      | 2020-01-01 | INR  |
-      | latest     | HKD  |
-      | 2020-01-01 | HKD  |
-      | latest     | BRL  |
-      | 2020-01-01 | BRL  |
-#      | latest     | AFN  |
-#      | 2020-01-01 | AFN  |
-      | latest     | MXN  |
-      | 2020-01-01 | MXN  |
-#      | latest     | GTM  |
-#      | 2020-01-01 | GTM  |
+      | day        | base | code | contains  |
+      | latest     | INR  | 200  | contains  |
+      | 2020-01-01 | INR  | 200  | contains  |
+      | latest     | HKD  | 200  | contains  |
+      | 2020-01-01 | HKD  | 200  | contains  |
+      | latest     | BRL  | 200  | contains  |
+      | 2020-01-01 | BRL  | 200  | contains  |
+      | latest     | AFS  | 400  | !contains |
+      | 2020-01-01 | AFN  | 400  | !contains |
+      | latest     | GTM  | 400  | !contains |
+      | 2020-01-01 | GTM  | 400  | !contains |
+      | latest     | MXN  | 200  | contains  |
+      | 2020-01-01 | MXN  | 200  | contains  |
+
