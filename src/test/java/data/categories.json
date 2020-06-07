@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Action and Adventure",
+    "id": "1"
+  },
+  {
+    "name": "Anthology",
+    "id": "2"
+  },
+  {
+    "name": "Classic",
+    "id": "3"
+  },
+  {
+    "name": "Comic and Graphic Novel",
+    "id": "4"
+  },
+  {
+    "name": "Crime and Detective",
+    "id": "5"
+  },
+  {
+    "name": "Drama",
+    "id": "6"
+  },
+  {
+    "name": "Fable",
+    "id": "7"
+  },
+  {
+    "name": "Fairy Tale",
+    "id": "8"
+  },
+  {
+    "name": "Fan-Fiction",
+    "id": "9"
+  },
+  {
+    "name": "Fantasy",
+    "id": "10"
+  },
+  {
+    "name": "Historical Fiction",
+    "id": "11"
+  },
+  {
+    "name": "Horror",
+    "id": "12"
+  },
+  {
+    "name": "Science Fiction",
+    "id": "13"
+  },
+  {
+    "name": "Biography/Autobiography",
+    "id": "14"
+  },
+  {
+    "name": "Humor",
+    "id": "15"
+  },
+  {
+    "name": "Romance",
+    "id": "16"
+  },
+  {
+    "name": "Short Story",
+    "id": "17"
+  },
+  {
+    "name": "Essay",
+    "id": "18"
+  },
+  {
+    "name": "Memoir",
+    "id": "19"
+  },
+  {
+    "name": "Poetry",
+    "id": "20"
+  }
+]

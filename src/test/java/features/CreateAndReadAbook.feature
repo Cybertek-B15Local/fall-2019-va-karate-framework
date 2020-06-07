@@ -8,7 +8,6 @@ Feature: create a book
     * def authToken = tokenFeature.token
     * print authToken
 
-  @fight
   Scenario: book tests
     # POST A BOOK
     * header x-library-token = authToken
@@ -33,3 +32,15 @@ Feature: create a book
     * path 'delete_book', bookId
     When method delete
     Then status 403
+
+  @fight
+  Scenario: get all categories
+    Given header x-library-token = authToken
+    * path 'get_book_categories'
+    When method get
+    Then status 200
+    * print response
+    # read the categories.json file in the data directory
+    * def expectedCats = read('classpath:data/categories.json')
+    * print expectedCats
+    * match response == expectedCats
