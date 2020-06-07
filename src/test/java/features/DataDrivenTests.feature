@@ -37,4 +37,3 @@ Feature: exchange rates data driven
       | 2020-01-01 | GTM  | 400  | !contains |
       | latest     | MXN  | 200  | contains  |
       | 2020-01-01 | MXN  | 200  | contains  |
-

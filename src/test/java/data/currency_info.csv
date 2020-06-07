@@ -1,0 +1,5 @@
+base,contains,code
+INR,contains,200
+HKD,contains,200
+GTM,!contains,400
+BRL,contains,200

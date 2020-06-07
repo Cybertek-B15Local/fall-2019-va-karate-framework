@@ -8,10 +8,12 @@ Feature: create a book
     * def authToken = tokenFeature.token
     * print authToken
 
+  @fight
   Scenario: book tests
     # POST A BOOK
     * header x-library-token = authToken
     * def book = LibraryDataGenerator.createBook()
+    * print book
     * form fields book
     * path 'add_book'
     When method post
@@ -33,7 +35,20 @@ Feature: create a book
     When method delete
     Then status 403
 
-  @fight
+    # PATCH
+    * set book
+      | path   | value        |
+      | id     | bookId       |
+      | author | 'Adam Smith' |
+    * print book
+    Given header x-library-token = authToken
+    * path 'update_book'
+    * request book
+    * method patch
+    * print response
+    * match response == {"message": "The book has been updated."}
+
+
   Scenario: get all categories
     Given header x-library-token = authToken
     * path 'get_book_categories'
