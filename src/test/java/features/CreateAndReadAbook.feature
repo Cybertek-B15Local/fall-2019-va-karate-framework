@@ -8,7 +8,6 @@ Feature: create a book
     * def authToken = tokenFeature.token
     * print authToken
 
-  @fight
   Scenario: book tests
     # POST A BOOK
     * header x-library-token = authToken

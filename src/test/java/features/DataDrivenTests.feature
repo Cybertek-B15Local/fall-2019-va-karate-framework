@@ -37,3 +37,17 @@ Feature: exchange rates data driven
       | 2020-01-01 | GTM  | 400  | !contains |
       | latest     | MXN  | 200  | contains  |
       | 2020-01-01 | MXN  | 200  | contains  |
+
+
+    @fight
+  Scenario Outline: with csv get rates for <base>
+    Given url 'https://api.exchangeratesapi.io/'
+    And path 'latest'
+    And param base = '<base>'
+    When method get
+    Then status <code>
+    And print response
+    And match response <contains> {'base': '#(base)'}
+
+    Examples:
+      | read('data/currency_info.csv') |
