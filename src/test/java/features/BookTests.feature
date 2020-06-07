@@ -31,8 +31,10 @@ Feature: Java interop (karate and java integration)
     And def book = LibraryDataGenerator.createBook()
     # add the book to the request
     And form fields book
-    And print 'book'
+    And print book
     When method post
     And print response
     Then status 200
+    And match response.book_id == '#notnull'
+    And match response.message == 'The book has been created.'
 
